@@ -18,7 +18,6 @@ async fn main() {
         .with(tracing_subscriber::fmt::layer())
         .init();
 
-    tracing_subscriber::fmt::init();
     let redis = utils::connect().await;
     let app_state_redis = app_state::AppState { redis };
     let app = create_router(app_state_redis);
